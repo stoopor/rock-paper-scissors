@@ -1,4 +1,20 @@
 const choices = ["rock", "paper", "scissors"];
+
+function addBorder(e)
+{
+    this.classList.add('hovered');
+    console.log(e);
+}
+
+function removeBorder(e)
+{
+    this.classList.remove('hovered');
+}
+
+const weapons = document.querySelectorAll('.weapon');
+console.log(weapons);
+weapons.forEach(weapon => weapon.addEventListener('mouseover', addBorder));
+weapons.forEach(weapon => weapon.addEventListener('mouseout',removeBorder));
 let paragraph = document.getElementById("gameDisplay");
 let computerIndex = -1; 
         function getComputerChoice()
