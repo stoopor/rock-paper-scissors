@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <link rel ="stylesheet" href="style.css">
+</head>
+<html>
+    
+    <body>
+        <div id="gameBox">
+            <span id="title">Rock Paper Scissors!</span>
+            <span id="weapon-selection">Choose Your Weapon!</span>
+            <div id ="buttons">
+                <img src="rock.jpg" class ="weapon" id = "rock">
+                <img src="paper.jpg" class ="weapon" id = "paper">
+                <img src="scissors.jpg" class="weapon" id = "scissors">
+            </div>
+            <div id = "scoreTable">
+                <div id = "yourScore">
+                    <span>YOU</span>
+                    <span class = "score" id = "urText">0</span>
+                </div>
+                <button class="confirm">FIGHT</button>
+                <div id = "compScore">
+                    <span>CPU</span>
+                    <span class = "score" id ="cpuText">0</span>
+                </div>
+            </div>
+            
+        </div>
+        
+        <p id="gameDisplay" style="margin-top:30%">Game:</p>
+    </body>
+    <script src="game.js"> </script>
+</html>
