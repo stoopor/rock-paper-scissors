@@ -45,7 +45,7 @@ function checkResult(yourChoice, computerChoice){
             selectionText.innerText = "Paper smothered Rock like a baked potato! You lose! NEXT ROUND!";
             compScore++;
         }
-        else if(computerChoice === "scissor") {
+        else if(computerChoice === "scissors") {
             selectionText.innerText = "Rock's too tough for Scissor's blade. You won! NEXT ROUND!";
             yourScore++;
         }
@@ -94,6 +94,8 @@ function removeBorder(e)
 
 function selectWeapon(e)
 {
+    let weapons = document.querySelectorAll('.weapon');
+    weapons.forEach(weapon => weapon.classList.remove('selected'));
     const id = this.id;
     selectionText = document.getElementById("weapon-selection");
     switch(id)
@@ -102,16 +104,19 @@ function selectWeapon(e)
             choice = "rock";
              selectionText.innerText = "Adamant, bolder, and stone cold, in this corner, heavy-weight the rock!";
              selectionText.style.fontSize = "18px";
+             weapons[0].classList.add('selected');
              break;
         case "paper":
             choice = "paper";
             selectionText.innerText = "Light as a feather, what's that in the sky? It's an origami bird, it's a paper plane! IT'S PAAAAAAPEEEERRR!!";
             selectionText.style.fontSize = "16px";
+            weapons[1].classList.add('selected');
             break;
         case "scissors":
             choice = "scissors";
             selectionText.innerText = "From a far away land this nomad travels to become the ultimate Swordsman. Who knows his real name is, but he is known as Scissors!"
             selectionText.style.fontSize = "16px";
+            weapons[2].classList.add('selected');
             break;
         default: alert("ERRRRERRR");
 
@@ -137,6 +142,7 @@ function confirmClick(e){
         compScoreText.innerText = "0";
         this.innerText = "FIGHT";
         document.getElementById("weapon-selection").innerText = "Choose Your Weapon!";
+        return;
     }
     if(choice === undefined) {
         selectionText = document.getElementById("weapon-selection");
@@ -145,6 +151,7 @@ function confirmClick(e){
     }
     computerChoice = getComputerChoice();
     checkResult(choice,computerChoice);
+    console.log(choice);
     console.log(computerChoice);
 
 }
@@ -158,93 +165,7 @@ confirmButton = document.getElementsByClassName("confirm");
 confirmButton[0].addEventListener('mouseover',confirmMouseOver);
 confirmButton[0].addEventListener('mouseout',confirmMouseOut);
 confirmButton[0].addEventListener('click',confirmClick);
-let paragraph = document.getElementById("gameDisplay");
-let computerIndex = -1; 
         
         
 
-        function getPlayerChoice(compIndex)
-        {
-            let good = false;
-            let index = -1;
-            while(!good)
-            {
-                let choice = prompt("Type your choice. Either: Rock, Paper, Scissors");
-                if (choice === null || choice === undefined) continue;
-            choice = choice.toLowerCase();
-            index = choices.indexOf(choice);
-            if(index === computerIndex){
-                alert("Tie, Pick Again!");
-                computerIndex = getComputerChoice();
-                compIndex = computerIndex;
-                continue;
-            }
-            if(index != -1) good = true;
-            }
-            return index;
-        }
-
-        function gameLoop()
-        {
-            let score = 0;
-            let computerScore = 0;
-            paragraph.innerHTML+="<br>";
-            for(let i = 0; i < 5; i++)
-            {
-                computerIndex = getComputerChoice();
-                let index = getPlayerChoice(computerIndex);
-                switch(index)
-                {
-                    case 0: 
-                    if(computerIndex === 1)
-                    {
-                        alert("computer chose paper, you lose!");
-                        paragraph.innerHTML+="<br>";
-                        computerScore++;
-                    }
-                    else if(computerIndex === 2)
-                    {
-                        alert("computer chose scissors, you win!");
-                        paragraph.innerHTML+="<br>";
-                        score++;
-                    }
-                    break;
-                    case 1:
-                    if(computerIndex === 0)
-                    {
-                        alert("computer chose rock, you win!");
-                        paragraph.innerHTML+="<br>";
-                        score++;
-                    }
-                    else if(computerIndex === 2)
-                    {
-                        alert("computer chose scissors, you lose!");
-                        paragraph.innerHTML+="<br>";
-                        computerScore++;
-                    }
-                    break;
-                    case 2:
-                        if(computerIndex === 0)
-                        {
-                            alert("computer chose rock,you lose!");
-                            paragraph.innerHTML+="<br>";
-                            computerScore++;
-                        }
-                        else if(computerIndex === 1)
-                        {
-                            alert("computer chose paper,you win!");
-                            paragraph.innerHTML+="<br>";
-                            score++;
-                        }
-                        break;
-                    default:;
-                }
-                
-            }
-    
-            if(score === computerScore) alert("THE SERIES IS A DRAW!");
-                else if(score > computerScore) paragraph.innerText+=("You won the series!");
-                alert("You lost the series!");
-        }
-        
         
