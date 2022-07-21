@@ -56,7 +56,7 @@ function checkResult(yourChoice, computerChoice){
             yourScore++;
         }
         else if(computerChoice === "scissors"){
-            selectionText.innerText = "Scissors made a snowflake out of paper! You lose! NEST ROUND!";
+            selectionText.innerText = "Scissors made a snowflake out of paper! You lose! NEXT ROUND!";
             compScore++;
         }
     }
@@ -134,6 +134,7 @@ function confirmMouseOut(e){
 }
 
 function confirmClick(e){
+    this.classList.remove("confirmHovered");
     if(gameOver){
         gameOver = false;
         let yourScoreText = document.getElementById("urText");
