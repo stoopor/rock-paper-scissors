@@ -11,6 +11,7 @@ html{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin:auto;
 }
 
 #title {
@@ -34,13 +35,37 @@ html{
     align-items: center;
     margin-top:40px;
     height:200px;
-    width:500px;
+    width:554px;
 }
 
-#confirm {
+#scoreTable {
+    display: flex;
+}
+
+#yourScore {
+    font-family:'Courier New', Courier, monospace;
+    font-size: 25px;
+    display:flex;
+    margin-left:40px;
+    margin-right:40px;
+    flex-direction: column;
+    width:50px;
+}
+
+#compScore {
+    font-family:'Courier New', Courier, monospace;
+    font-size:25px;
+    display:flex;
+    margin-left:40px;
+    margin-right:40px;
+    flex-direction: column;
+}
+
+.confirm {
     height:130px;
     width: 300px;
     background-color: white;
+    color:black;
     border: 3px solid black;
 }
 
@@ -54,4 +79,17 @@ html{
 
 .hovered {
     border: 8px solid black;
+}
+
+.confirmHovered {
+    font-size:40px;
+    color:white;
+    background-color:black;
+}
+
+.score {
+    font-size:80px;
+    /*margin:40px;*/
+    
+
 }
